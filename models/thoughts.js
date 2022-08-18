@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const moment = require('moment');
+const reactionSchema = require('./reaction');
 
 const formatDate = (date) => {
     return moment(date).format('MMM Do, YYYY -- h:mm a');
@@ -23,9 +24,7 @@ const thoughtsSchema = new mongoose.Schema(
             type: String,
 
         },
-        reactions: {
-
-        },
+        reactions: [reactionSchema],
     },
     {
         toJSON: {
@@ -43,12 +42,12 @@ thoughts.find({}).exec((err, collection) => {
                 {
                     thoughtText: 'hello world',
                     username: 'jerome',
-                    reactions:[{}],
+                    reactions:[{ ReactionBody: 'hi there', username: 'kevin'}],
                 },
                 {
-                    thoughtText: 'hello jerome',
+                    thoughtText: 'hello manuel',
                     username: 'vince',
-                    reactions:[{}],
+                    reactions:[{ ReactionBody: 'hi there', username: 'manuel'}],
                 }
             ],
 
