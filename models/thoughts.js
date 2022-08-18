@@ -21,4 +21,6 @@ const thoughtsSchema = new mongoose.Schema(
 
         },
     }
-)
+);
+
+const thoughts = mongoose.model('Thoughts', thoughtsSchema);
