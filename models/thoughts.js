@@ -1,4 +1,9 @@
 const mongoose = require('mongoose');
+const moment = require('moment');
+
+const formatDate = (date) => {
+    return moment(date).format('MMM Do, YYYY -- h:mm a');
+}
 
 const thoughtsSchema = new mongoose.Schema(
     {
@@ -12,6 +17,7 @@ const thoughtsSchema = new mongoose.Schema(
         createdAt: {
             type: Date,
             default: Date.now,
+            get: formatDate,
         },
         username: {
             type: String,
