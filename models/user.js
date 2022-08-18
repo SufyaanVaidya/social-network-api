@@ -33,4 +33,51 @@ const userSchema = new mongoose.Schema(
         },
         id: false,
       }
-)
+);
+
+userSchema.virtual("friendCount").get(function () {
+
+    return this.friends.length;
+  });
+
+  const user = mongoose.model("user", userSchema);
+
+  user.find({}).exec((err, collection) => {
+    if (collection.length == 0) {
+      user.insertMany(
+        [
+          { 
+
+            username: "jerome", 
+            email: "jerome@gmail.com"
+         
+          },
+          {
+
+            username: "vince",
+            email: "vince@gmail.com",
+
+          },
+          {
+
+            username: "kevin",
+            email: "kevin@gmail.com",
+
+          },
+          {
+
+            username: "manuel",
+            email: "manuel@gmail.com",
+
+          },
+        ],
+        (insertErr) => {
+          if (insertErr) {
+            console.log(insertErr);
+          }
+        }
+      );
+    }
+  });
+
+  module.exports = user;
