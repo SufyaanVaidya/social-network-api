@@ -13,6 +13,12 @@ const userSchema = new mongoose.Schema(
         type: String,
         required: true,
         unique: true,
+        validate: {
+            validator: function (email) {
+              return /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(email);
+            },
+          },
+          message: "Please Enter A Valid Email.",
         },
         thoughts: [
             {
