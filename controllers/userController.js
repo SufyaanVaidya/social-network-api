@@ -48,13 +48,14 @@ const createUser = (req, res) => {
 
   const getUsers = (req, res) => {
     user.find()
-      .populate(Thoughts)
+      .populate("thoughts")
       .populate("friends")
       .select("-__v")
       .then((result) => {
         res.status(200).json(result);
       })
       .catch((err) => {
+        console.log(err);
         res.status(500).json(err);
       });
   };

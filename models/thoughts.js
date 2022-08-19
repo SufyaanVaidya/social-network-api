@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
+const { Types } = require("mongoose");
 const moment = require('moment');
-const reactionSchema = require('./reaction');
 
 const formatDate = (date) => {
     return moment(date).format('MMM Do, YYYY -- h:mm a');
@@ -61,7 +61,7 @@ const thoughtsSchema = new mongoose.Schema(
       }
 );
 
-const thoughts = mongoose.model('Thoughts', thoughtsSchema);
+const thoughts = mongoose.model('thoughts', thoughtsSchema);
 
 thoughts.find({}).exec((err, collection) => {
     if (collection.length == 0) {
@@ -70,18 +70,18 @@ thoughts.find({}).exec((err, collection) => {
                 {
                     thoughtText: 'hello world',
                     username: 'jerome',
-                    reactions:[{ ReactionBody: 'hi there', username: 'kevin'}],
+                    reactions:[{ reactionBody: 'hi there', username: 'kevin'}],
                 },
                 {
                     thoughtText: 'hello manuel',
                     username: 'vince',
-                    reactions:[{ ReactionBody: 'hi there', username: 'manuel'}],
+                    reactions:[{ reactionBody: 'hi there', username: 'manuel'}],
                 }
             ],
 
             (insertErr) => {
-                if (insertErr) {
-                    console.log(insertErr)
+              if (insertErr) {
+                handleError(insertErr);
                 }
             }
         )

@@ -1,4 +1,4 @@
-const { createPromptModule } = require("inquirer");
+
 const { thoughts, user } = require("../models");
 
 const createThought = (req, res) => {

@@ -48,6 +48,8 @@ userSchema.virtual("friendCount").get(function () {
 
   const user = mongoose.model("user", userSchema);
 
+  const handleError = (err) => console.error(err);
+
   user.find({}).exec((err, collection) => {
     if (collection.length == 0) {
       user.insertMany(
@@ -79,7 +81,7 @@ userSchema.virtual("friendCount").get(function () {
         ],
         (insertErr) => {
           if (insertErr) {
-            console.log(insertErr);
+            handleError(insertErr);
           }
         }
       );

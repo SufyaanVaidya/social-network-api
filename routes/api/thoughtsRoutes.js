@@ -5,6 +5,7 @@ const { createThought, createReaction, getSingleThought , getThoughts , deleteTh
 
 router.route("/").get(getThoughts).post(createThought);
 
+
 router.route("/:_id").get(getSingleThought).delete(deleteThought);
 
 router.route("/:_id/reactions").post(createReaction);
