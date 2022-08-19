@@ -1,0 +1,26 @@
+{
+  "name": "social-network-api",
+  "version": "1.0.0",
+  "description": "This is a social networking api",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SufyaanVaidya/social-network-api.git"
+  },
+  "author": "Sufyaan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SufyaanVaidya/social-network-api/issues"
+  },
+  "homepage": "https://github.com/SufyaanVaidya/social-network-api#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "moment": "^2.29.4",
+    "mongoose": "^6.5.2",
+    "nodemon": "^2.0.19"
+  }
+}

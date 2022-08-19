@@ -48,7 +48,7 @@ const createUser = (req, res) => {
 
   const getUsers = (req, res) => {
     user.find()
-      .populate({ path: "thoughts", select: "_id" })
+      .populate(Thoughts)
       .populate("friends")
       .select("-__v")
       .then((result) => {
